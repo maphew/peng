@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvka8uldqd8c6"]
+
+[ext_resource type="Texture2D" uid="uid://ccgolimoemcj0" path="res://assets/textures/penquin.png" id="1_2q278"]
+[ext_resource type="Script" uid="uid://l7l5f2wg6oqm" path="res://scenes/main-character.gd" id="1_i7tid"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7tid"]
+radius = 6.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_i7tid")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2q278")
+offset = Vector2(0, -16)
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -9)
+shape = SubResource("CircleShape2D_i7tid")
