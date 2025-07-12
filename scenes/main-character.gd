@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -400.0
 
 
 @onready var spikes: TileMapLayer = $"../spikes"
+@onready var sprite: Sprite2D = $Sprite2D
+
 
 @export_category("Stats")
 @export var acceleration: float = 5.0
@@ -22,6 +24,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#old_movement(delta)
+	flip_sprite()
 
 		# Add the gravity.
 	if not is_on_floor():
@@ -40,6 +43,14 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
+
+
+
+func flip_sprite() -> void:
+	if Input.is_action_pressed("mv_left"):
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
 
 
 
